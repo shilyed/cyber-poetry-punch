@@ -83,7 +83,7 @@ GitHub Actions 在 Windows 和 Linux 上执行同一套针对性检查。
 | 汇文明朝体（符号修正版） | 特里王；[bosswnx/huiwenmincho-improved](https://github.com/bosswnx/huiwenmincho-improved) | CC0，见 [字体声明](assets/fonts/NOTICE.md) |
 | Rice Paper 扫描纹理 | Atle Mo / [Subtle Patterns](https://www.toptal.com/designers/subtlepatterns/rice-paper/) | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/)，见 [纸纹声明](assets/textures/NOTICE.md) |
 
-Rice Paper 是作者标注的米纸扫描，用作宣纸风格；不宣称它是特定产地或工艺的中国宣纸实拍。渲染会对其进行灰度化、缩放、平铺、取样、明度归一化及着色；改编的纸纹继续适用 CC BY-SA 3.0。
+Rice Paper 是作者标注的米纸扫描。渲染会对其进行灰度化、缩放、平铺、取样、明度归一化及着色；改编的纸纹继续适用 CC BY-SA 3.0。
 
 示例图片也使用上述纸纹。输出 PNG 内嵌来源、授权和修改说明；若发布平台会移除图片元数据，请在随图说明中保留：
 
