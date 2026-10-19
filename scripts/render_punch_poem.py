@@ -27,6 +27,7 @@ the script validates that the punched CJK characters match "new_phrase".
 from __future__ import annotations
 
 import argparse
+import io
 import json
 import math
 import os
@@ -1152,6 +1153,9 @@ def demo_plan() -> dict[str, Any]:
 
 
 def main() -> None:
+    for stream in (sys.stdout, sys.stderr):
+        if isinstance(stream, io.TextIOWrapper):
+            stream.reconfigure(encoding="utf-8")
     parser = argparse.ArgumentParser(
         description="Render a Xiaohongshu-style cyber poetry punch image."
     )

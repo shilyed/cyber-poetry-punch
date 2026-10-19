@@ -1,3 +1,5 @@
+import os
+import subprocess
 import sys
 import tempfile
 import unittest
@@ -80,6 +82,30 @@ class PaperTextureTests(unittest.TestCase):
                 self.assertEqual(image.size, (600, 800))
                 self.assertIn("Atle Mo", image.info["Paper texture attribution"])
                 self.assertIn("CC BY-SA 3.0", image.info["Paper texture license"])
+
+    def test_cli_outputs_utf8_in_non_chinese_environments(self):
+        env = dict(os.environ, PYTHONIOENCODING="cp1252", PYTHONUTF8="0")
+        result = subprocess.run(
+            [sys.executable, str(ROOT / "scripts" / "render_punch_poem.py"),
+             "--demo", "--check"],
+            env=env,
+            capture_output=True,
+            encoding="utf-8",
+            check=True,
+        )
+        self.assertIn("新句：", result.stdout)
+        self.assertIn("□", result.stdout)
+        with tempfile.TemporaryDirectory() as folder:
+            result = subprocess.run(
+                [sys.executable, str(ROOT / "scripts" / "render_punch_poem.py"),
+                 str(Path(folder) / "missing.json")],
+                env=env,
+                capture_output=True,
+                encoding="utf-8",
+            )
+        self.assertEqual(result.returncode, 1)
+        self.assertIn("找不到 plan", result.stderr)
+        self.assertNotIn("UnicodeEncodeError", result.stderr)
 
 
 if __name__ == "__main__":

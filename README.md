@@ -19,6 +19,8 @@ An installable AI agent skill that cuts selected Chinese characters out of a poe
 
 这是文件型 **agent skill**，不是已托管的 HTTP API，也不是 MCP server。AI 必须能下载仓库、读取指令并运行 Python；只能聊天、不能执行代码的 AI 无法直接渲染。
 
+命令行的标准输出和错误输出统一使用 UTF-8，便于 AI 通过子进程读取中文预览及错误消息。
+
 ## 安装到 AI 工具
 
 仓库根目录就是一个完整 skill，具有标准的 `name` / `description` frontmatter。把整个仓库克隆到工具的 skill 目录即可；工具须支持本地 skills，并允许 Python 执行。
