@@ -1,0 +1,4 @@
+interface:
+  display_name: "赛博诗词打孔器"
+  short_description: "把中国诗词挖字重排成小红书风格的双色纸拼贴图，并导出高清 PNG"
+  default_prompt: "Use $cyber-poetry-punch to turn a Chinese poem into a Xiaohongshu-style cyber poetry punch image."
